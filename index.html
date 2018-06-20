@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="js/app.module.js"></script>
+        <script src="js/service.js"></script>
+        <script src="js/app.controller.js"></script>
+        <style>
+            .album-0,
+            .album-1,
+            .album-2 {
+                border: 1px solid green;
+                padding: 5px;
+                margin: 5px;
+            }
+
+            .album-1 {
+                border-color: blue;
+            }
+
+            .album-2 {
+                border-color: purple;
+            }
+        </style>
+    </head>
+    <body>
+        <div ng-app="bairesApp" ng-controller="bairesCtrl">
+            <div ng-repeat="album in albums track by $index" class="album-{{$index}}">
+                <div ng-repeat="photo in album">
+                    <p>
+                        {{::photo.title}}
+                    </p>
+                    <img ng-src="{{photo.thumbnailUrl}}" />
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
