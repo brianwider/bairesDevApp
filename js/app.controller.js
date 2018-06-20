@@ -23,6 +23,9 @@
 
                         var filteredAlbums = totalAlbums.slice(Math.max(totalAlbums.length - 3, 1))
                         $scope.albums = [];
+
+                        // This could be replaced by a .filter()
+                        // It's more efficient to just filter the results on the controller, so the view doesn't need to do it
                         filteredAlbums.forEach(function (album) {
                             $scope.albums.push(album.slice(Math.max(album.length - 2, 1)));
                         });
